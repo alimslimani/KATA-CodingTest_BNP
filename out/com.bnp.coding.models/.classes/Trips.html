@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Trips</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.bnp.coding.models</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Trips (com.bnp.coding.models)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Trips</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (10/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    58,6%
+  </span>
+  <span class="absValue">
+    (17/ 29)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.bnp.coding.models;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.google.gson.Gson;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public class Trips {
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;    private String stationStart, stationEnd;
+<i>8</i>&nbsp;    private long startedJourneyAt;
+<i>9</i>&nbsp;    private int costInCents;
+<i>10</i>&nbsp;    private int zoneFrom, zoneTo;
+<i>11</i>&nbsp;
+<b class="fc"><i>12</i>&nbsp;    public Trips() {</b>
+<b class="fc"><i>13</i>&nbsp;    }</b>
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;
+<b class="nc"><i>16</i>&nbsp;    public Trips(String stationStart, String stationEnd, long startedJourneyAt, int costInCents, int zoneFrom, int zoneTo) {</b>
+<b class="nc"><i>17</i>&nbsp;        this.stationStart = stationStart;</b>
+<b class="nc"><i>18</i>&nbsp;        this.stationEnd = stationEnd;</b>
+<b class="nc"><i>19</i>&nbsp;        this.startedJourneyAt = startedJourneyAt;</b>
+<b class="nc"><i>20</i>&nbsp;        this.costInCents = costInCents;</b>
+<b class="nc"><i>21</i>&nbsp;        this.zoneFrom = zoneFrom;</b>
+<b class="nc"><i>22</i>&nbsp;        this.zoneTo = zoneTo;</b>
+<b class="nc"><i>23</i>&nbsp;    }</b>
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public String getStationStart() {
+<b class="fc"><i>26</i>&nbsp;        return stationStart;</b>
+<i>27</i>&nbsp;    }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    public void setStationStart(String stationStart) {
+<b class="fc"><i>30</i>&nbsp;        this.stationStart = stationStart;</b>
+<b class="fc"><i>31</i>&nbsp;    }</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    public String getStationEnd() {
+<b class="fc"><i>34</i>&nbsp;        return stationEnd;</b>
+<i>35</i>&nbsp;    }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    public void setStationEnd(String stationEnd) {
+<b class="fc"><i>38</i>&nbsp;        this.stationEnd = stationEnd;</b>
+<b class="fc"><i>39</i>&nbsp;    }</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    public int getCostInCents() {
+<b class="fc"><i>42</i>&nbsp;        return costInCents;</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public void setCostInCents(int costInCents) {
+<b class="fc"><i>46</i>&nbsp;        this.costInCents = costInCents;</b>
+<b class="fc"><i>47</i>&nbsp;    }</b>
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public int getZoneFrom() {
+<b class="nc"><i>50</i>&nbsp;        return zoneFrom;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public void setZoneFrom(int zoneFrom) {
+<b class="fc"><i>54</i>&nbsp;        this.zoneFrom = zoneFrom;</b>
+<b class="fc"><i>55</i>&nbsp;    }</b>
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    public int getZoneTo() {
+<b class="nc"><i>58</i>&nbsp;        return zoneTo;</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    public void setZoneTo(int zoneTo) {
+<b class="fc"><i>62</i>&nbsp;        this.zoneTo = zoneTo;</b>
+<b class="fc"><i>63</i>&nbsp;    }</b>
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    public long getStartedJourneyAt() {
+<b class="nc"><i>66</i>&nbsp;        return startedJourneyAt;</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    public void setStartedJourneyAt(long startedJourneyAt) {
+<b class="fc"><i>70</i>&nbsp;        this.startedJourneyAt = startedJourneyAt;</b>
+<b class="fc"><i>71</i>&nbsp;    }</b>
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    @Override
+<i>74</i>&nbsp;    public String toString() {
+<b class="nc"><i>75</i>&nbsp;        return new Gson().toJson(this);</b>
+<i>76</i>&nbsp;    }
+<i>77</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-01-30 18:31</div>
+</div>
+</body>
+</html>

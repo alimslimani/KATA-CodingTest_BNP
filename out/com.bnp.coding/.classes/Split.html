@@ -1,0 +1,112 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Split</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.bnp.coding</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Split (com.bnp.coding)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Split</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90,9%
+  </span>
+  <span class="absValue">
+    (10/ 11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.bnp.coding;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.ArrayList;
+<i>4</i>&nbsp;import java.util.List;
+<i>5</i>&nbsp;import java.util.function.Function;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * Created by IntelliJ IDEA.
+<i>9</i>&nbsp; * User: Alim.SLIMANI
+<i>10</i>&nbsp; * Date: 30/1/20
+<i>11</i>&nbsp; */
+<i>12</i>&nbsp;
+<b class="nc"><i>13</i>&nbsp;public class Split {</b>
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    public static &lt;E, F&gt; List&lt;F&gt; split(List&lt;E&gt; list, int size, Function&lt;List&lt;E&gt;, F&gt; func) {
+<b class="fc"><i>16</i>&nbsp;        List&lt;F&gt; result = new ArrayList&lt;F&gt;(list.size() / size + 1);</b>
+<b class="fc"><i>17</i>&nbsp;        List&lt;E&gt; sublist = null;</b>
+<b class="fc"><i>18</i>&nbsp;        for (int i = 0; i &lt; list.size(); i++) {</b>
+<b class="fc"><i>19</i>&nbsp;            if (i % size == 0) {</b>
+<b class="fc"><i>20</i>&nbsp;                if (sublist != null)</b>
+<b class="fc"><i>21</i>&nbsp;                    result.add(func.apply(sublist));</b>
+<b class="fc"><i>22</i>&nbsp;                sublist = new ArrayList&lt;E&gt;(size);</b>
+<i>23</i>&nbsp;            }
+<b class="fc"><i>24</i>&nbsp;            sublist.add(list.get(i));</b>
+<i>25</i>&nbsp;        }
+<b class="fc"><i>26</i>&nbsp;        result.add(func.apply(sublist));</b>
+<b class="fc"><i>27</i>&nbsp;        return result;</b>
+<i>28</i>&nbsp;    }
+<i>29</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-01-30 18:31</div>
+</div>
+</body>
+</html>

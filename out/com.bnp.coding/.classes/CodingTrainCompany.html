@@ -1,0 +1,121 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CodingTrainCompany</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.bnp.coding</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CodingTrainCompany (com.bnp.coding)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CodingTrainCompany</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91,7%
+  </span>
+  <span class="absValue">
+    (11/ 12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.bnp.coding;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.bnp.coding.controllers.*;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.io.FileWriter;
+<i>6</i>&nbsp;import java.io.IOException;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * Created by IntelliJ IDEA.
+<i>10</i>&nbsp; * User: Alim.SLIMANI
+<i>11</i>&nbsp; * Date: 30/1/20s
+<i>12</i>&nbsp; * ls
+<i>13</i>&nbsp; */
+<i>14</i>&nbsp;
+<b class="nc"><i>15</i>&nbsp;public class CodingTrainCompany {</b>
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    public static void main(String[] args) throws IOException {
+<i>18</i>&nbsp;//      main method take 2 input parameters
+<i>19</i>&nbsp;//      the input file path
+<b class="fc"><i>20</i>&nbsp;        String filePathReader = args[0];</b>
+<i>21</i>&nbsp;//      the second is the output file path
+<b class="fc"><i>22</i>&nbsp;        String filePathWriter = args[1];</b>
+<i>23</i>&nbsp;//      init all controllers
+<b class="fc"><i>24</i>&nbsp;        ReaderFileController readerFileController = new ReaderFileControllerImpl();</b>
+<b class="fc"><i>25</i>&nbsp;        ZoneIntersectionController zoneIntersectionController = new ZoneIntersectionControllerImpl();</b>
+<b class="fc"><i>26</i>&nbsp;        CustomerController customerController = new CustomerControllerImpl();</b>
+<i>27</i>&nbsp;//      Treatment
+<b class="fc"><i>28</i>&nbsp;        String finalResult = customerController.getListOfCustomersFromInputFile(filePathReader, readerFileController, zoneIntersectionController, customerController);</b>
+<i>29</i>&nbsp;//      Write result like json format
+<b class="fc"><i>30</i>&nbsp;        try (FileWriter file = new FileWriter(filePathWriter)) {</b>
+<b class="fc"><i>31</i>&nbsp;            file.write(finalResult);</b>
+<b class="fc"><i>32</i>&nbsp;            System.out.println(&quot;Successfully Copied JSON Object to File...&quot;);</b>
+<b class="fc"><i>33</i>&nbsp;        }</b>
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;}
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-01-30 18:31</div>
+</div>
+</body>
+</html>

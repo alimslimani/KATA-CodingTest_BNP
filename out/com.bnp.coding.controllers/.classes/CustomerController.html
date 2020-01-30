@@ -1,0 +1,72 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.bnp.coding.controllers</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerController (com.bnp.coding.controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">CustomerController</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.bnp.coding.controllers;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.bnp.coding.models.Taps;
+<i>4</i>&nbsp;import com.bnp.coding.models.Trips;
+<i>5</i>&nbsp;import org.json.JSONArray;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;/**
+<i>10</i>&nbsp; * Created by IntelliJ IDEA.
+<i>11</i>&nbsp; * User: Alim.SLIMANI
+<i>12</i>&nbsp; * Date: 30/1/20
+<i>13</i>&nbsp; */
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;public interface CustomerController {
+<i>16</i>&nbsp;    void getCustomerIdAndStationsAndTime(List&lt;Taps&gt; tapsList, List&lt;String&gt; stations, List&lt;Integer&gt; customerIds);
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    String getListOfCustomersFromInputFile(String filePathReader, ReaderFileController readerFileController, ZoneIntersectionController zoneIntersectionController, CustomerController customerController);
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    List&lt;Long&gt; createTrips(List&lt;String&gt; customerStations, List&lt;Long&gt; customerUnixTimestamp, List&lt;Trips&gt; tripsList, ZoneIntersectionController zoneIntersectionController);
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    JSONArray findCustomer(String filePathReader, ReaderFileController readerFileController, ZoneIntersectionController zoneIntersectionController);
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    void createTripsAndCustomers(ZoneIntersectionController zoneIntersectionController, JSONArray listOfCustomer, List&lt;String&gt; stations, List&lt;String&gt; stationsOfCustomer, List&lt;Long&gt; unixTimestampOfCustomer, List&lt;Integer&gt; customerIds, List&lt;Trips&gt; tripsList);
+<i>25</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-01-30 18:31</div>
+</div>
+</body>
+</html>

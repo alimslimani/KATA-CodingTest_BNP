@@ -1,0 +1,172 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ZoneIntersectionControllerImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.bnp.coding.controllers</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ZoneIntersectionControllerImpl (com.bnp.coding.controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ZoneIntersectionControllerImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71,7%
+  </span>
+  <span class="absValue">
+    (33/ 46)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.bnp.coding.controllers;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.bnp.coding.models.Pricing;
+<i>4</i>&nbsp;import com.bnp.coding.models.Zone;
+<i>5</i>&nbsp;import com.bnp.coding.models.Trips;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * Created by IntelliJ IDEA.
+<i>9</i>&nbsp; * User: Alim.SLIMANI
+<i>10</i>&nbsp; * Date: 30/1/20
+<i>11</i>&nbsp; */
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;public class ZoneIntersectionControllerImpl implements ZoneIntersectionController {</b>
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    @Override
+<i>16</i>&nbsp;    public void findIntersectionBetweenTwoZones(Trips trips) {
+<i>17</i>&nbsp;        // Zone to same Zone
+<b class="fc"><i>18</i>&nbsp;        if ((Zone.ZONE_1.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_1.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="nc"><i>19</i>&nbsp;            setZoneAndCost(trips, 1, 1, Pricing.TravelWithinZone1And2);</b>
+<b class="fc"><i>20</i>&nbsp;        } else if ((Zone.ZONE_2.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_2.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="nc"><i>21</i>&nbsp;            setZoneAndCost(trips, 2, 2, Pricing.TravelWithinZone1And2);</b>
+<b class="fc"><i>22</i>&nbsp;        } else if ((Zone.ZONE_3.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_3.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="fc"><i>23</i>&nbsp;            setZoneAndCost(trips, 3, 3, Pricing.TravelWithinZones3And4);</b>
+<b class="fc"><i>24</i>&nbsp;        } else if ((Zone.ZONE_4.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_4.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="fc"><i>25</i>&nbsp;            setZoneAndCost(trips, 4, 4, Pricing.TravelWithinZones3And4);</b>
+<b class="fc"><i>26</i>&nbsp;        } else if ((Zone.ZONE_2.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_1.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="fc"><i>27</i>&nbsp;            setZoneAndCost(trips, 2, 1, Pricing.TravelWithinZone1And2);</b>
+<b class="fc"><i>28</i>&nbsp;        } else if ((Zone.ZONE_4.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_3.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="fc"><i>29</i>&nbsp;            setZoneAndCost(trips, 4, 3, Pricing.TravelWithinZones3And4);</b>
+<i>30</i>&nbsp;        }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;// Zone to another Zone
+<i>33</i>&nbsp;//                1) Travel within zones 1 and 2: €2.40 per trip.
+<b class="fc"><i>34</i>&nbsp;        else if ((Zone.ZONE_1.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_2.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="fc"><i>35</i>&nbsp;            setZoneAndCost(trips, 1, 2, Pricing.TravelWithinZone1And2);</b>
+<i>36</i>&nbsp;        }
+<i>37</i>&nbsp;//                2) Travel within zones 3 and 4: €2.00 per trip.
+<b class="fc"><i>38</i>&nbsp;        else if ((Zone.ZONE_3.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_4.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="nc"><i>39</i>&nbsp;            setZoneAndCost(trips, 3, 4, Pricing.TravelWithinZones3And4);</b>
+<i>40</i>&nbsp;        }
+<i>41</i>&nbsp;//                3) Travel from zone 3 to zone 1 or 2: €2.80 per trip.
+<b class="fc"><i>42</i>&nbsp;        else if ((Zone.ZONE_3.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_1.getStations().contains(trips.getStationEnd()) || Zone.ZONE_2.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="nc"><i>43</i>&nbsp;            trips.setZoneFrom(3);</b>
+<b class="nc"><i>44</i>&nbsp;            setZoneTo1Or2(trips);</b>
+<b class="nc"><i>45</i>&nbsp;            trips.setCostInCents((int) (Pricing.EuroToCents * Pricing.TravelFromZone3ToZone1Or2));</b>
+<i>46</i>&nbsp;        }
+<i>47</i>&nbsp;//                4) Travel from zone 4 to Zone 1 or 2: €3.00 per trip.
+<b class="fc"><i>48</i>&nbsp;        else if ((Zone.ZONE_4.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_1.getStations().contains(trips.getStationEnd()) || Zone.ZONE_2.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="nc"><i>49</i>&nbsp;            trips.setZoneFrom(4);</b>
+<b class="nc"><i>50</i>&nbsp;            setZoneTo1Or2(trips);</b>
+<b class="nc"><i>51</i>&nbsp;            trips.setCostInCents((int) (Pricing.EuroToCents * Pricing.TravelFromZone4ToZone1Or2));</b>
+<i>52</i>&nbsp;        }
+<i>53</i>&nbsp;//                5) Travel from zone 1 or 2, to zone 3: €2.80 per trip.
+<b class="fc"><i>54</i>&nbsp;        else if ((Zone.ZONE_1.getStations().contains(trips.getStationStart()) || Zone.ZONE_2.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_3.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="fc"><i>55</i>&nbsp;            setZoneFrom1Or2(trips);</b>
+<b class="fc"><i>56</i>&nbsp;            trips.setZoneTo(3);</b>
+<b class="fc"><i>57</i>&nbsp;            trips.setCostInCents((int) (Pricing.EuroToCents * Pricing.TravelFromZone1Or2ToZone3));</b>
+<i>58</i>&nbsp;        }
+<i>59</i>&nbsp;//                6) Travel from zone 1 or 2, zone 4 to: €3.00 per trip.
+<b class="fc"><i>60</i>&nbsp;        else if ((Zone.ZONE_1.getStations().contains(trips.getStationStart()) || Zone.ZONE_2.getStations().contains(trips.getStationStart())) &amp;&amp; (Zone.ZONE_4.getStations().contains(trips.getStationEnd()))) {</b>
+<b class="fc"><i>61</i>&nbsp;            setZoneFrom1Or2(trips);</b>
+<b class="fc"><i>62</i>&nbsp;            trips.setZoneTo(4);</b>
+<b class="fc"><i>63</i>&nbsp;            trips.setCostInCents((int) (Pricing.EuroToCents * Pricing.TravelFromZone1Or2ToZone4));</b>
+<i>64</i>&nbsp;        }
+<i>65</i>&nbsp;        //        7) If there is the possibility of two prices then we must charge the customer the lowest amount and reflect this in the pricing information.
+<b class="fc"><i>66</i>&nbsp;    }</b>
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    private void setZoneTo1Or2(Trips trips) {
+<b class="nc"><i>69</i>&nbsp;        if (Zone.ZONE_1.getStations().contains(trips.getStationEnd())) {</b>
+<b class="nc"><i>70</i>&nbsp;            trips.setZoneTo(1);</b>
+<i>71</i>&nbsp;        } else {
+<b class="nc"><i>72</i>&nbsp;            trips.setZoneTo(2);</b>
+<i>73</i>&nbsp;        }
+<b class="nc"><i>74</i>&nbsp;    }</b>
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    private void setZoneFrom1Or2(Trips trips) {
+<b class="fc"><i>77</i>&nbsp;        if (Zone.ZONE_1.getStations().contains(trips.getStationStart())) {</b>
+<b class="fc"><i>78</i>&nbsp;            trips.setZoneFrom(1);</b>
+<i>79</i>&nbsp;        } else {
+<b class="fc"><i>80</i>&nbsp;            trips.setZoneFrom(2);</b>
+<i>81</i>&nbsp;        }
+<b class="fc"><i>82</i>&nbsp;    }</b>
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    private void setZoneAndCost(Trips trips, int zoneFrom, int zoneTo, double travelWithinZone1And2) {
+<b class="fc"><i>85</i>&nbsp;        trips.setZoneFrom(zoneFrom);</b>
+<b class="fc"><i>86</i>&nbsp;        trips.setZoneTo(zoneTo);</b>
+<b class="fc"><i>87</i>&nbsp;        trips.setCostInCents((int) (Pricing.EuroToCents * travelWithinZone1And2));</b>
+<b class="fc"><i>88</i>&nbsp;    }</b>
+<i>89</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-01-30 18:31</div>
+</div>
+</body>
+</html>
