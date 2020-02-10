@@ -4,7 +4,8 @@ import com.google.gson.Gson;
 
 public class Trips {
 
-    private String stationStart, stationEnd;
+    private String stationStart;
+    private String stationEnd;
     private long startedJourneyAt;
     private int costInCents;
     private int zoneFrom, zoneTo;

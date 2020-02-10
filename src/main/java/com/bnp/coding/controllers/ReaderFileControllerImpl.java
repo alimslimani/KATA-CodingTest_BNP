@@ -37,7 +37,7 @@ public class ReaderFileControllerImpl implements ReaderFileController {
         return tapsList;
     }
 }
-
+// Model of Taps when the program retrieve the data from Input File to convert it from Json
 class ModelTapsObject {
     List<Taps> taps;
 }

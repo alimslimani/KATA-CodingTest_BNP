@@ -46,7 +46,6 @@ public class CodingTrainCompanyTest {
         assertEquals(tripsList.get(0).getCostInCents(), 240);
         assertEquals(1, tripsList.get(0).getZoneFrom());
         assertEquals(1, tripsList.get(0).getZoneTo());
-        tripsList = new ArrayList<>();
     }
 
     @Test
@@ -202,9 +201,8 @@ public class CodingTrainCompanyTest {
     }
 
     @Test
-    public void testTraveilWithinDifferentZones() throws IOException {
+    public void testTravelWithinDifferentZones() throws IOException {
         String filePathWriter = "src\\test\\java\\com\\bnp\\coding\\output.json";
-        String filePath = "src\\test\\java\\com\\bnp\\coding\\CandidateOutputExample.txt";
         String filePathReader = "src\\test\\java\\com\\bnp\\coding\\CandidateInputExample.txt";
         File output = new File(filePathWriter);
         File outputResult = new File(filePathWriter);

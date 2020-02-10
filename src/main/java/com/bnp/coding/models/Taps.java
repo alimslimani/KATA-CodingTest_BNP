@@ -1,8 +1,6 @@
 package com.bnp.coding.models;
 
 import com.google.gson.Gson;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Taps {
 

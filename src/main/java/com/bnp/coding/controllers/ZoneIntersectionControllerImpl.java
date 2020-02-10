@@ -1,8 +1,8 @@
 package com.bnp.coding.controllers;
 
 import com.bnp.coding.models.Pricing;
-import com.bnp.coding.models.Zone;
 import com.bnp.coding.models.Trips;
+import com.bnp.coding.models.Zone;
 
 /**
  * Created by IntelliJ IDEA.
@@ -65,6 +65,7 @@ public class ZoneIntersectionControllerImpl implements ZoneIntersectionControlle
         //        7) If there is the possibility of two prices then we must charge the customer the lowest amount and reflect this in the pricing information.
     }
 
+    //    Method to set zone to 1 or 2
     private void setZoneTo1Or2(Trips trips) {
         if (Zone.ZONE_1.getStations().contains(trips.getStationEnd())) {
             trips.setZoneTo(1);
@@ -73,6 +74,7 @@ public class ZoneIntersectionControllerImpl implements ZoneIntersectionControlle
         }
     }
 
+    //    Method to set zone from 1 or 2
     private void setZoneFrom1Or2(Trips trips) {
         if (Zone.ZONE_1.getStations().contains(trips.getStationStart())) {
             trips.setZoneFrom(1);
@@ -81,6 +83,7 @@ public class ZoneIntersectionControllerImpl implements ZoneIntersectionControlle
         }
     }
 
+    //    Method to set zone and cost
     private void setZoneAndCost(Trips trips, int zoneFrom, int zoneTo, double travelWithinZone1And2) {
         trips.setZoneFrom(zoneFrom);
         trips.setZoneTo(zoneTo);

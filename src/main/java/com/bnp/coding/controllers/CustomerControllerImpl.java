@@ -20,7 +20,7 @@ import static java.util.stream.Collectors.toList;
  */
 
 public class CustomerControllerImpl implements CustomerController {
-
+    //  Method to calculate the cost of travel
     private static int getCost(List<Trips> tripsList) {
         int cost = 0;
         for (Trips t : tripsList) {
@@ -29,6 +29,7 @@ public class CustomerControllerImpl implements CustomerController {
         return cost;
     }
 
+    //  Method to create a customer
     private static void createCustomer(JSONArray listOfCustomer, List<Integer> customerIds, List<Trips> tripsList, int j, int cost) {
         Customer customers = new Customer();
         customers.setCustomerId(customerIds.get(j));
@@ -37,6 +38,7 @@ public class CustomerControllerImpl implements CustomerController {
         listOfCustomer.put(customers);
     }
 
+    //  Using stream to retrieve the Id,Stations and Time of travel by customer Id
     @Override
     public void getCustomerIdAndStationsAndTime(List<Taps> tapsList, List<String> stations, List<Integer> customerIds) {
         tapsList.stream()
@@ -52,6 +54,7 @@ public class CustomerControllerImpl implements CustomerController {
                 });
     }
 
+    //   Method to retrieve the list of customer from Input File as Json Object
     @Override
     public String getListOfCustomersFromInputFile(String filePathReader, ReaderFileController readerFileController, ZoneIntersectionController zoneIntersectionController, CustomerController customerController) {
         JSONArray listOfCustomer = customerController.findCustomer(filePathReader, readerFileController, zoneIntersectionController);
@@ -60,6 +63,7 @@ public class CustomerControllerImpl implements CustomerController {
         return result.replaceAll("myArrayList", "customerSummaries");
     }
 
+    //  Method to create a Trips with needed information like Intersection
     @Override
     public List<Long> createTrips(List<String> customerStations, List<Long> customerUnixTimestamp, List<Trips> tripsList, ZoneIntersectionController zoneIntersectionController) {
         List<String> stations = Split.split(customerStations, 2, x -> x.toString());
@@ -77,6 +81,7 @@ public class CustomerControllerImpl implements CustomerController {
         return customerUnixTimestamp;
     }
 
+    //  Method to find customer from Input File and create all information about it
     @Override
     public JSONArray findCustomer(String filePathReader, ReaderFileController readerFileController, ZoneIntersectionController zoneIntersectionController) {
         List<Taps> tapsList = readerFileController.getTapsObjectFromInputFile(filePathReader).stream().collect(toList());
@@ -92,6 +97,7 @@ public class CustomerControllerImpl implements CustomerController {
         return listOfCustomer;
     }
 
+    // Method where the customer with trips will be create
     @Override
     public void createTripsAndCustomers(ZoneIntersectionController zoneIntersectionController, JSONArray listOfCustomer, List<String> stations, List<String> stationsOfCustomer, List<Long> unixTimestampOfCustomer, List<Integer> customerIds, List<Trips> tripsList) {
         for (int j = 0; j < customerIds.size(); j++) {

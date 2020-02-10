@@ -3,7 +3,8 @@ package com.bnp.coding.models;
 import java.util.List;
 
 public class Customer {
-    private int customerId, totalCostInCents;
+    private int customerId;
+    private int totalCostInCents;
     private List<Trips> trips;
 
     public Customer() {
