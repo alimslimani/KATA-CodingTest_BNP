@@ -3,6 +3,7 @@ package com.bnp.coding;
 import com.bnp.coding.controllers.*;
 import com.bnp.coding.models.Taps;
 import com.bnp.coding.models.Trips;
+import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.junit.Test;
@@ -176,6 +177,21 @@ public class CodingTrainCompanyTest {
     }
 
     @Test
+    public void testLimitTravelCostTo500() {
+        tapsList.add(t1);
+        tapsList.add(t3);
+        tapsList.add(t4);
+        tapsList.add(t5);
+        tapsList.add(t6);
+        tapsList.add(t7);
+        customerController.getCustomerIdAndStationsAndTime(tapsList, stations, customerIds);
+        customerController.createTripsAndCustomers(zoneIntersectionController, listOfCustomer, stations, stationsOfCustomer, unixTimestampOfCustomer, customerIds, tripsList);
+        Gson gsonConverter = new Gson();
+        String result = gsonConverter.toJson(listOfCustomer);
+        assertEquals(result.contains("\"totalCostInCents\":500"), true);
+    }
+
+    @Test
     public void testTravelWithinZ3To1Or2() {
         tapsList.add(t4);
         tapsList.add(t1);
@@ -202,7 +218,7 @@ public class CodingTrainCompanyTest {
 
     @Test
     public void testTravelWithinDifferentZones() throws IOException {
-        String filePathWriter = "src\\test\\java\\com\\bnp\\coding\\output.json";
+        String filePathWriter = "src\\test\\java\\com\\bnp\\coding\\output1.json";
         String filePathReader = "src\\test\\java\\com\\bnp\\coding\\CandidateInputExample.txt";
         File output = new File(filePathWriter);
         File outputResult = new File(filePathWriter);
