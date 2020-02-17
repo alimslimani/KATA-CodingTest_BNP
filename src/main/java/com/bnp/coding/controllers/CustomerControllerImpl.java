@@ -29,6 +29,13 @@ public class CustomerControllerImpl implements CustomerController {
         return cost;
     }
 
+    private static int setMaxCost(int cost) {
+        if (cost > 500) {
+            cost = 500;
+        }
+        return cost;
+    }
+
     //  Method to create a customer
     private static void createCustomer(JSONArray listOfCustomer, List<Integer> customerIds, List<Trips> tripsList, int j, int cost) {
         Customer customers = new Customer();
@@ -111,6 +118,7 @@ public class CustomerControllerImpl implements CustomerController {
             unixTimestampOfCustomer = createTrips(stationsOfCustomer, unixTimestampOfCustomer, tripsList, zoneIntersectionController);
             int cost = getCost(tripsList);
 
+            cost = setMaxCost(cost);
             createCustomer(listOfCustomer, customerIds, tripsList, j, cost);
             tripsList = new ArrayList<>();
             stationsOfCustomer = new ArrayList<>();
