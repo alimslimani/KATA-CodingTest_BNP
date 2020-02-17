@@ -41,8 +41,35 @@ public class CustomerControllerImpl implements CustomerController {
         Customer customers = new Customer();
         customers.setCustomerId(customerIds.get(j));
         customers.setTrips(tripsList);
-        customers.setTotalCostInCents(cost);
+        if (tripsList.size() > 1) {
+            setTotalCostInCentsFilteredByZones(tripsList, cost, customers);
+        } else {
+            customers.setTotalCostInCents(cost);
+        }
         listOfCustomer.put(customers);
+    }
+
+    private static void setTotalCostInCentsFilteredByZones(List<Trips> tripsList, int cost, Customer customers) {
+        List<Integer> allZones = new ArrayList<>();
+        tripsList.stream()
+                .forEach(trips -> {
+                            allZones.add(trips.getZoneFrom());
+                            allZones.add(trips.getZoneTo());
+                        }
+                );
+        List<Integer> zones = allZones.stream().sorted().distinct().collect(Collectors.toList());
+
+        if (zones.size() > 2) {
+            customers.setTotalCostInCents(cost);
+        } else {
+            List<Integer> zone = zones.subList(0, zones.size());
+            if (zone.contains(1) || zone.contains(2)) {
+                customers.setTotalCostInCents(800);
+            }
+            if (zone.contains(3) || zone.contains(4)) {
+                customers.setTotalCostInCents(600);
+            }
+        }
     }
 
     //  Using stream to retrieve the Id,Stations and Time of travel by customer Id
