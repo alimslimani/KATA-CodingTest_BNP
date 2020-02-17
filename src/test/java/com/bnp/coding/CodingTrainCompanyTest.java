@@ -234,7 +234,7 @@ public class CodingTrainCompanyTest {
 
 
     @Test
-    public void testTravelLimitTo800WithinZone3And4() {
+    public void testTravelLimitTo600WithinZone3And4() {
         tapsList.add(t4);
         tapsList.add(t5);
         tapsList.add(t4);
@@ -258,7 +258,7 @@ public class CodingTrainCompanyTest {
     }
 
     @Test
-    public void testTravelLimitTo600WithinZone1And2() {
+    public void testTravelLimitTo800WithinZone1And2() {
         tapsList.add(t1);
         tapsList.add(t6);
         tapsList.add(t1);
