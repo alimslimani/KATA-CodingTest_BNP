@@ -232,4 +232,49 @@ public class CodingTrainCompanyTest {
         assertTrue("The result is like the candidateoutput!", FileUtils.contentEquals(output, outputResult));
     }
 
+
+    @Test
+    public void testTravelLimitTo800WithinZone3And4() {
+        tapsList.add(t4);
+        tapsList.add(t5);
+        tapsList.add(t4);
+        tapsList.add(t5);
+        tapsList.add(t4);
+        tapsList.add(t5);
+        tapsList.add(t4);
+        tapsList.add(t5);
+        tapsList.add(t4);
+        tapsList.add(t5);
+        tapsList.add(t4);
+        tapsList.add(t5);
+        tapsList.add(t4);
+        tapsList.add(t5);
+
+        customerController.getCustomerIdAndStationsAndTime(tapsList, stations, customerIds);
+        customerController.createTripsAndCustomers(zoneIntersectionController, listOfCustomer, stations, stationsOfCustomer, unixTimestampOfCustomer, customerIds, tripsList);
+        Gson gsonConverter = new Gson();
+        String result = gsonConverter.toJson(listOfCustomer);
+        assertEquals(result.contains("\"totalCostInCents\":600"), true);
+    }
+
+    @Test
+    public void testTravelLimitTo600WithinZone1And2() {
+        tapsList.add(t1);
+        tapsList.add(t6);
+        tapsList.add(t1);
+        tapsList.add(t6);
+        tapsList.add(t1);
+        tapsList.add(t6);
+        tapsList.add(t1);
+        tapsList.add(t6);
+        tapsList.add(t1);
+        tapsList.add(t6);
+        tapsList.add(t1);
+        tapsList.add(t6);
+        customerController.getCustomerIdAndStationsAndTime(tapsList, stations, customerIds);
+        customerController.createTripsAndCustomers(zoneIntersectionController, listOfCustomer, stations, stationsOfCustomer, unixTimestampOfCustomer, customerIds, tripsList);
+        Gson gsonConverter = new Gson();
+        String result = gsonConverter.toJson(listOfCustomer);
+        assertEquals(result.contains("\"totalCostInCents\":800"), true);
+    }
 }
